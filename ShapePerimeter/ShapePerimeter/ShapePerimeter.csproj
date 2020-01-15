@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\ShapeParameterWindow.xaml.cs">
+      <DependentUpon>ShapeParameterWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +66,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\Helper\RelayCommand.cs" />
+    <Compile Include="Data\Helper\ShapeTypeEnum.cs" />
+    <Compile Include="Data\interface\IShape.cs" />
+    <Compile Include="Data\model\CircleModel.cs" />
+    <Compile Include="Data\model\RectangleModel.cs" />
+    <Compile Include="Data\model\TriangleModel.cs" />
+    <Compile Include="Data\ViewModels\ShapeParametersViewModel.cs" />
+    <Compile Include="Data\ViewModels\ShapeViweModel.cs" />
+    <Compile Include="Data\ViewModels\ViewModelBase.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ShapeParameterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,5 +110,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
