@@ -1,11 +1,9 @@
 ﻿using ShapePerimeter.Data.Helper;
-using System.ComponentModel;
-using System.Windows.Input;
-using System.Linq;
 using ShapePerimeter.Data.Model;
 using System.Collections.ObjectModel;
-using ShapePerimeter.View;
+using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 
 namespace ShapePerimeter.Data.ViewModels
 {
@@ -86,31 +84,6 @@ namespace ShapePerimeter.Data.ViewModels
         }
 
         #region Drawing
-        private void OnDrawShape(IShape shape)
-        {
-            if (new ShapeParameterWindow(shape).ShowDialog() != true || !shape.IsValid) return;
-
-            Shapes.Add(shape);
-            OnPropertyChanged("Shapes");
-        }
-
-        private void DrawCircle()
-        {
-            var shape = new CircleModel();
-            OnDrawShape(shape);
-        }
-
-        private void DrawRectangle()
-        {
-            var shape = new RectangleModel();
-            OnDrawShape(shape);
-        }
-
-        private void DrawTrinagle()
-        {
-            var shape = new TriangleModel();
-            OnDrawShape(shape);
-        }
 
         private ShapeTypeEnum GetShapetype()
         {
@@ -129,7 +102,7 @@ namespace ShapePerimeter.Data.ViewModels
 
         private bool CanExecute(Point e)
         {
-            return  Shape.IsValid;
+            return Shape.IsValid;
         }
 
         private void OnExecute(Point e)
@@ -142,17 +115,14 @@ namespace ShapePerimeter.Data.ViewModels
                 case ShapeTypeEnum.Triangle:
                     shape.X = e.X;
                     shape.Y = e.Y;
-                    //DrawTrinagle();
                     break;
                 case ShapeTypeEnum.Rectangle:
                     shape.X = e.X;
                     shape.Y = e.Y;
-                    //DrawRectangle();
                     break;
                 case ShapeTypeEnum.Circle:
-                    shape.X = e.X ;
-                    shape.Y = e.Y ;
-                    //DrawCircle();
+                    shape.X = e.X;
+                    shape.Y = e.Y;
                     break;
             }
 
@@ -171,7 +141,6 @@ namespace ShapePerimeter.Data.ViewModels
         {
             OnPropertyChanged("Perimeters");
         }
-
 
         #endregion Commands
     }

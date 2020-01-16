@@ -7,7 +7,7 @@ namespace ShapePerimeter.Data.Helper
     {
         readonly Action<T> _action;
         readonly Predicate<T> _canExecute;
-        
+
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -19,10 +19,10 @@ namespace ShapePerimeter.Data.Helper
 
         public bool CanExecute(object parameter) { return _canExecute != null ? true : parameter is T && _canExecute((T)parameter); }
         public void Execute(object parameter) { _action((T)parameter); }
-                
+
     }
 
-    public class RelayCommand: ICommand
+    public class RelayCommand : ICommand
     {
         readonly Action<object> _action;
         readonly Predicate<object> _canExecute;
@@ -36,7 +36,7 @@ namespace ShapePerimeter.Data.Helper
         public RelayCommand(Action<object> action) { _action = action; }
         public RelayCommand(Action<object> action, Predicate<object> canExecute) { _action = action; _canExecute = canExecute; }
 
-        public bool CanExecute(object parameter) { return _canExecute != null ? true : parameter !=null && _canExecute(parameter); }
+        public bool CanExecute(object parameter) { return _canExecute != null ? true : parameter != null && _canExecute(parameter); }
         public void Execute(object parameter) { _action(parameter); }
 
     }

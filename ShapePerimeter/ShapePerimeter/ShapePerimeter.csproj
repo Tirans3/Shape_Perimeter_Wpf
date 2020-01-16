@@ -56,9 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Helper\MouseBehavior.cs" />
-    <Compile Include="View\ShapeParameterWindow.xaml.cs">
-      <DependentUpon>ShapeParameterWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,17 +70,12 @@
     <Compile Include="Data\model\CircleModel.cs" />
     <Compile Include="Data\model\RectangleModel.cs" />
     <Compile Include="Data\model\TriangleModel.cs" />
-    <Compile Include="Data\ViewModels\ShapeParametersViewModel.cs" />
     <Compile Include="Data\ViewModels\ShapeViweModel.cs" />
     <Compile Include="Data\ViewModels\ViewModelBase.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\ShapeParameterWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

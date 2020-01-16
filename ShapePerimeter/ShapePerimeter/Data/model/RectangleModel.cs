@@ -1,5 +1,4 @@
 ﻿using ShapePerimeter.Data.Helper;
-using System.ComponentModel;
 
 namespace ShapePerimeter.Data.Model
 {
