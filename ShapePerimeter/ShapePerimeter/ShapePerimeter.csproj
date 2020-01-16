@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Helper\MouseBehavior.cs" />
     <Compile Include="View\ShapeParameterWindow.xaml.cs">
       <DependentUpon>ShapeParameterWindow.xaml</DependentUpon>
     </Compile>

@@ -10,12 +10,20 @@ namespace ShapePerimeter.Data.Model
 
         public bool IsValid => Radius>0;
 
+        public double X { get; set; }
+        public double Y { get; set; }
+
         public CircleModel()
         {
         }
         public double GetPeremiter()
         {
             return 2 * Math.PI * Radius;
+        }
+
+        public object Clone()
+        {
+            return new CircleModel {Radius = Radius };
         }
     }
 }

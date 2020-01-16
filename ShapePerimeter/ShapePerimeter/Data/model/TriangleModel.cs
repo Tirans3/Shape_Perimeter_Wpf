@@ -23,6 +23,9 @@ namespace ShapePerimeter.Data.Model
 
         public bool IsValid => true;
 
+        public double X { get; set; }
+        public double Y { get; set; }
+
         public TriangleModel()
         {
             
@@ -31,6 +34,11 @@ namespace ShapePerimeter.Data.Model
         public double GetPeremiter()
         {
             return Math.Sqrt(Math.Pow(X1 - X2, 2) + Math.Pow(Y1 - Y2, 2)) + Math.Sqrt(Math.Pow(X3 - X2, 2) + Math.Pow(Y3 - Y2, 2)) + Math.Sqrt(Math.Pow(X1 - X3, 2) + Math.Pow(Y1 - Y3, 2));
+        }
+
+        public object Clone()
+        {
+            throw new NotImplementedException();
         }
     }
 }
