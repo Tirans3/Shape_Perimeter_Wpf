@@ -14,10 +14,6 @@ namespace ShapePerimeter.Data.Model
         public double X { get; set; }
         public double Y { get; set; }
 
-        public RectangleModel()
-        {
-
-        }
         public double GetPeremiter()
         {
             return (Height + Width) * 2;

@@ -129,31 +129,29 @@ namespace ShapePerimeter.Data.ViewModels
 
         private bool CanExecute(Point e)
         {
-            return GetShapetype() != default(ShapeTypeEnum) && Shape.IsValid;
+            return  Shape.IsValid;
         }
 
         private void OnExecute(Point e)
         {
             if (!CanExecute(e)) return;
 
-
-
             var shape = (IShape)Shape.Clone();
             switch (GetShapetype())
             {
                 case ShapeTypeEnum.Triangle:
-                    shape.X = 100;
-                    shape.Y = 100;
+                    shape.X = e.X;
+                    shape.Y = e.Y;
                     //DrawTrinagle();
                     break;
                 case ShapeTypeEnum.Rectangle:
-                    shape.X = 100;
-                    shape.Y = 100;
+                    shape.X = e.X;
+                    shape.Y = e.Y;
                     //DrawRectangle();
                     break;
                 case ShapeTypeEnum.Circle:
-                    shape.X = e.X - ((CircleModel)shape).Radius / 2;
-                    shape.Y = e.Y - ((CircleModel)shape).Radius / 2;
+                    shape.X = e.X ;
+                    shape.Y = e.Y ;
                     //DrawCircle();
                     break;
             }
