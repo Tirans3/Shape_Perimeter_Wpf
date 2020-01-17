@@ -11,13 +11,19 @@ namespace ShapePerimeter.Data.ViewModels
     {
         public ObservableCollection<IShape> Shapes { get; set; }
         public IShape Shape { get; set; }
-        public double Perimeters
+
+        public ShapeViewModel()
+        {
+            Shapes = new ObservableCollection<IShape>();
+        }
+
+        public double? Perimeters
         {
             get
             {
-                double per = 0;
+                double? per = 0;
                 foreach (var shape in Shapes) per += shape.GetPeremiter();
-                return per == 0 ? 0 : per / Shapes.Count;
+                return per == 0 ? null : per / Shapes.Count;
             }
         }
 
@@ -26,6 +32,8 @@ namespace ShapePerimeter.Data.ViewModels
         {
             get { return _isCilcleChecked; }
             set
+            
+            
             {
                 if (_isCilcleChecked == value) return;
                 _isCilcleChecked = value;
@@ -78,12 +86,7 @@ namespace ShapePerimeter.Data.ViewModels
             }
         }
 
-        public ShapeViewModel()
-        {
-            Shapes = new ObservableCollection<IShape>();
-        }
 
-        #region Drawing
 
         private ShapeTypeEnum GetShapetype()
         {
@@ -92,9 +95,10 @@ namespace ShapePerimeter.Data.ViewModels
             if (IsRectangleChecked) return ShapeTypeEnum.Rectangle;
             return default(ShapeTypeEnum);
         }
-        #endregion Drawing
+       
 
         #region Commands
+
         private ICommand _createShpeCommand;
         private ICommand _getPermiterCommand;
 
@@ -113,8 +117,8 @@ namespace ShapePerimeter.Data.ViewModels
             switch (GetShapetype())
             {
                 case ShapeTypeEnum.Triangle:
-                    shape.X = e.X;
-                    shape.Y = e.Y;
+                    shape.X = e.X - ((TriangleModel)shape).X1;
+                    shape.Y = e.Y - ((TriangleModel)shape).Y1;
                     break;
                 case ShapeTypeEnum.Rectangle:
                     shape.X = e.X;
