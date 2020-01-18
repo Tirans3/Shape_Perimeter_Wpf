@@ -9,15 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <!--<Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2"  SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>-->
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -229,11 +220,11 @@
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" Background="Azure" >
 
-                <ToggleButton IsChecked="{Binding IsTriangleChecked}" Style="{StaticResource TriangleButtonBaseStyle}" CommandParameter="{x:Static enum:ShapeTypeEnum.Triangle}"/>
+                <ToggleButton IsChecked="{Binding IsTriangleChecked}" Style="{StaticResource TriangleButtonBaseStyle}"/>
 
-                <ToggleButton IsChecked="{Binding IsCilcleChecked}" Style="{StaticResource EllipseButtonBaseStyle}" CommandParameter="{x:Static enum:ShapeTypeEnum.Circle}" />
+                <ToggleButton IsChecked="{Binding IsCilcleChecked}" Style="{StaticResource EllipseButtonBaseStyle}"  />
 
-                <ToggleButton IsChecked="{Binding IsRectangleChecked}" Style="{StaticResource RectangelButtonBaseStyle}" CommandParameter="{x:Static enum:ShapeTypeEnum.Rectangle}"/>
+                <ToggleButton IsChecked="{Binding IsRectangleChecked}" Style="{StaticResource RectangelButtonBaseStyle}"/>
 
             </StackPanel>
 
