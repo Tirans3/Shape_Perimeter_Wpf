@@ -3,22 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:enum="clr-namespace:ShapePerimeter.Data.Helper"
         xmlns:model="clr-namespace:ShapePerimeter.Data.Model"
         xmlns:helper="clr-namespace:ShapePerimeter.Data.Helper"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="Red"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-
         <Style x:Key="ToggleButtonBaseStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
             <Setter Property="Width" Value="50"/>
             <Setter Property="Height" Value="50"/>
@@ -31,18 +23,6 @@
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Path x:Name="Path" Fill="{StaticResource Button.Static.Background}" Data="M 0 49 L 25 0 L 47 48 Z"/>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Fill" TargetName="Path" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="Stroke" TargetName="Path" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Fill" TargetName="Path" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="Stroke" TargetName="Path" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Fill" TargetName="Path" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="Stroke" TargetName="Path" Value="{StaticResource Button.Disabled.Border}"/>
-                            </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Fill" TargetName="Path" Value="{StaticResource Button.Pressed.Background}"/>
                                 <Setter Property="Stroke" TargetName="Path" Value="{StaticResource Button.Pressed.Border}"/>
@@ -59,18 +39,6 @@
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Ellipse x:Name="Ellipse" Fill="{StaticResource Button.Static.Background}" Width="40" Height="40" />
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Fill" TargetName="Ellipse" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="Stroke" TargetName="Ellipse" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Fill" TargetName="Ellipse" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="Stroke" TargetName="Ellipse" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Fill" TargetName="Ellipse" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="Stroke" TargetName="Ellipse" Value="{StaticResource Button.Disabled.Border}"/>
-                            </Trigger>
                             <Trigger Property="IsChecked" Value="true">
                                 <Setter Property="Fill" TargetName="Ellipse" Value="{StaticResource Button.Pressed.Background}"/>
                                 <Setter Property="Stroke" TargetName="Ellipse" Value="{StaticResource Button.Pressed.Border}"/>
@@ -87,18 +55,6 @@
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Rectangle x:Name="Rectangel" Fill="{StaticResource Button.Static.Background}" Width="40" Height="40" />
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Fill" TargetName="Rectangel" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="Stroke" TargetName="Rectangel" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Fill" TargetName="Rectangel" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="Stroke" TargetName="Rectangel" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Fill" TargetName="Rectangel" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="Stroke" TargetName="Rectangel" Value="{StaticResource Button.Disabled.Border}"/>
-                            </Trigger>
                             <Trigger Property="IsChecked" Value="true">
                                 <Setter Property="Fill" TargetName="Rectangel" Value="{StaticResource Button.Pressed.Background}"/>
                                 <Setter Property="Stroke" TargetName="Rectangel" Value="{StaticResource Button.Pressed.Border}"/>
@@ -133,7 +89,6 @@
                             <StackPanel  Orientation="Horizontal" >
                                 <TextBlock Text="Circle Radius"/>
                                 <TextBox Text="{Binding Radius, UpdateSourceTrigger=PropertyChanged}" Width="100" HorizontalContentAlignment="Right"/>
-
                             </StackPanel>
                         </DataTemplate>
 
@@ -222,7 +177,7 @@
 
                 <ToggleButton IsChecked="{Binding IsTriangleChecked}" Style="{StaticResource TriangleButtonBaseStyle}"/>
 
-                <ToggleButton IsChecked="{Binding IsCilcleChecked}" Style="{StaticResource EllipseButtonBaseStyle}"  />
+                <ToggleButton IsChecked="{Binding IsCilcleChecked}" Style="{StaticResource EllipseButtonBaseStyle}"/>
 
                 <ToggleButton IsChecked="{Binding IsRectangleChecked}" Style="{StaticResource RectangelButtonBaseStyle}"/>
 

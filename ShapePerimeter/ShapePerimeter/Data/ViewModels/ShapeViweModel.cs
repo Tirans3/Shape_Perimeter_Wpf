@@ -32,8 +32,6 @@ namespace ShapePerimeter.Data.ViewModels
         {
             get { return _isCilcleChecked; }
             set
-            
-            
             {
                 if (_isCilcleChecked == value) return;
                 _isCilcleChecked = value;
